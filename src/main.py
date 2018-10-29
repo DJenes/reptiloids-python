@@ -27,6 +27,7 @@ class MainFrame(MyFrame):
         self.Layout()
 
     def solve(self, event):
+        self.popUp()
         v1 = [float(self.cells[x][-1].GetValue()) for x in range(0, len(self.cells))]
         m1 = []
         for x in range(0, len(self.cells)):
