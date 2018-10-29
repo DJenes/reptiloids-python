@@ -11,7 +11,11 @@ class MainFrame(MyFrame):
         self.cells = []
 
     def init_grid(self, event):
-        num = int(self.num_of_lines.GetValue())
+        try:
+            num = int(self.num_of_lines.GetValue())
+        except TypeError:
+            self.popUp('Число, где тварь?!')
+            return False
         if not self.status:
             self.status = True
             self.create_grid(num)
@@ -27,7 +31,6 @@ class MainFrame(MyFrame):
         self.Layout()
 
     def solve(self, event):
-        self.popUp()
         v1 = [float(self.cells[x][-1].GetValue()) for x in range(0, len(self.cells))]
         m1 = []
         for x in range(0, len(self.cells)):
@@ -42,8 +45,8 @@ class MainFrame(MyFrame):
     def validate_grid(self):
         pass
 
-    def popUp(self):
-        dial = wx.MessageDialog(None, 'fuck you', 'you too', wx.OK | wx.ICON_ERROR)
+    def popUp(self, message):
+        dial = wx.MessageDialog(None, message, 'Ошибка валидации', wx.OK | wx.ICON_ERROR)
         dial.ShowModal()
 
 app = wx.App()
