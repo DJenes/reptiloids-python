@@ -43,7 +43,7 @@ class MainFrame(MyFrame):
         pass
 
     def popUp(self):
-        wx.MessageDialog(self, 'fuck you', 'you too')
+        wx.MessageDialog(self, 'fuck you', 'you too', wx.OK | wx.ICON_INFORMATION)
 
 app = wx.App()
 frame = MainFrame(None)
