@@ -13,7 +13,7 @@ class MainFrame(MyFrame):
     def init_grid(self, event):
         try:
             num = int(self.num_of_lines.GetValue())
-        except TypeError:
+        except ValueError:
             self.popUp('Число, где тварь?!')
             return False
         if not self.status:
