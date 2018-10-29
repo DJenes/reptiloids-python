@@ -38,6 +38,11 @@ class MainFrame(MyFrame):
         logging.warning(m1)
         logging.warning(answer)
 
+    def validate_grid(self):
+        pass
+
+    def popUp(self):
+        wx.MessageDialog(self, 'fuck you', 'you too')
 
 app = wx.App()
 frame = MainFrame(None)
