@@ -28,6 +28,7 @@ class MainFrame(MyFrame):
             self.cells.append([])
             for y in range(0, count + 1):
                 element = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(50, -1), 0)
+                element.SetMaxLength(2)
                 self.gbSizer1.Add(element, wx.GBPosition(1 + x, 1 + y), wx.GBSpan(1, 1), wx.ALL, 5)
                 self.cells[x].append(element)
         self.Layout()
