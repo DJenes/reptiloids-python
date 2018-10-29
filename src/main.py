@@ -14,13 +14,15 @@ class MainFrame(MyFrame):
         try:
             num = int(self.num_of_lines.GetValue())
         except ValueError:
-            self.popUp('Число, где тварь?!')
+            self.pop_up('Число, где тварь?!')
             return False
         if not self.status:
             self.status = True
             self.create_grid(num)
         logging.warning(num)
 
+    # x - rows
+    # y - cols + one additional for numpy
     def create_grid(self, count):
         for x in range(0, count):
             self.cells.append([])
@@ -31,23 +33,32 @@ class MainFrame(MyFrame):
         self.Layout()
 
     def solve(self, event):
-        v1 = [float(self.cells[x][-1].GetValue()) for x in range(0, len(self.cells))]
-        m1 = []
-        for x in range(0, len(self.cells)):
-            m1.append([])
-            for y in range(0, len(self.cells)):
-                m1[x].append(float(self.cells[x][y].GetValue()))
-        answer = numpy.linalg.solve(m1, v1)
-        logging.warning(v1)
-        logging.warning(m1)
-        logging.warning(answer)
+        if self.validate_grid():
+            v1 = [float(self.cells[x][-1].GetValue()) for x in range(0, len(self.cells))]
+            m1 = []
+            for x in range(0, len(self.cells)):
+                m1.append([])
+                for y in range(0, len(self.cells)):
+                    m1[x].append(float(self.cells[x][y].GetValue()))
+            answer = numpy.linalg.solve(m1, v1)
+            logging.warning(v1)
+            logging.warning(m1)
+            logging.warning(answer)
 
     def validate_grid(self):
-        pass
+        for x in range(0, len(self.cells)):
+            for y in range(0, len(self.cells) + 1):
+                try:
+                    int(self.cells[x][y].GetValue())
+                except ValueError:
+                    self.pop_up('Снова выходишь на связь, Ебанашка? Где число?!!')
+                    return False
+        return True
 
-    def popUp(self, message):
+    def pop_up(self, message):
         dial = wx.MessageDialog(None, message, 'Ошибка валидации', wx.OK | wx.ICON_ERROR)
         dial.ShowModal()
+
 
 app = wx.App()
 frame = MainFrame(None)
