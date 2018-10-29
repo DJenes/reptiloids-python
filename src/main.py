@@ -20,7 +20,7 @@ class MainFrame(MyFrame):
     def create_grid(self, count):
         for x in range(0, count):
             self.cells.append([])
-            for y in range(0, count+1):
+            for y in range(0, count + 1):
                 element = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(50, -1), 0)
                 self.gbSizer1.Add(element, wx.GBPosition(1 + x, 1 + y), wx.GBSpan(1, 1), wx.ALL, 5)
                 self.cells[x].append(element)
@@ -43,7 +43,8 @@ class MainFrame(MyFrame):
         pass
 
     def popUp(self):
-        wx.MessageDialog('fuck you', 'you too', wx.OK | wx.ICON_INFORMATION)
+        dial = wx.MessageDialog(None, 'fuck you', 'you too', wx.OK | wx.ICON_ERROR)
+        dial.ShowModal()
 
 app = wx.App()
 frame = MainFrame(None)
