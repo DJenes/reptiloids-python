@@ -60,6 +60,11 @@ class MainFrame(MyFrame):
         dial = wx.MessageDialog(None, message, 'Ошибка валидации', wx.OK | wx.ICON_ERROR)
         dial.ShowModal()
 
+    def clear(self, event):
+        for x in range(0, len(self.cells)):
+            for y in range(0, len(self.cells) + 1):
+                self.cells[x][y].Remove()
+
 
 app = wx.App()
 frame = MainFrame(None)

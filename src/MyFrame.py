@@ -43,6 +43,9 @@ class MyFrame(wx.Frame):
         self.m_button3 = wx.Button(self, wx.ID_ANY, 'Решить', wx.DefaultPosition, wx.Size(100, -1), 0)
         self.gbSizer1.Add(self.m_button3, wx.GBPosition(3, 0), wx.GBSpan(1, 1), wx.ALL, 5)
 
+        self.m_button4 = wx.Button(self, wx.ID_ANY, 'Очистить', wx.DefaultPosition, wx.Size(100, -1), 0)
+        self.gbSizer1.Add(self.m_button4, wx.GBPosition(4, 0), wx.GBSpan(1, 1), wx.ALL, 5)
+
         self.SetSizer(self.gbSizer1)
         self.Layout()
 
@@ -51,6 +54,7 @@ class MyFrame(wx.Frame):
         # Connect Events
         self.m_button2.Bind(wx.EVT_BUTTON, self.init_grid)
         self.m_button3.Bind(wx.EVT_BUTTON, self.solve)
+        self.m_button4.Bind(wx.EVT_BUTTON, self.clear)
 
     def __del__(self):
         pass
@@ -60,4 +64,7 @@ class MyFrame(wx.Frame):
         event.Skip()
 
     def solve(self, event):
+        event.Skip()
+
+    def clear(self, event):
         event.Skip()
