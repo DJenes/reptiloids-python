@@ -10,6 +10,7 @@ class MainFrame(MyFrame):
         self.status = False
         self.cells = []
 
+    # create grid for numpy
     def init_grid(self, event):
         try:
             num = int(self.num_of_lines.GetValue())
@@ -66,6 +67,7 @@ class MainFrame(MyFrame):
             for x in range(0, len(self.cells)):
                 for y in range(0, len(self.cells) + 1):
                     self.cells[x][y].Destroy()
+            self.cells = []
 
 
 app = wx.App()
