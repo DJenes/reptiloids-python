@@ -74,10 +74,10 @@ class MainFrame(MyFrame):
     def auto_size(self):
         width = 100
         if self.cells:
-            width = 100 + len(self.cells) * 40
+            width = 100 + len(self.cells) * 41
         height = 210
         if len(self.cells) > 4:
-            height = 210 + (len(self.cells) - 4) * 40
+            height = 210 + (len(self.cells) - 4) * 39
         logging.warning(len(self.cells))
         self.SetSize(wx.Size(width, height))
 
