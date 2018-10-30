@@ -19,7 +19,7 @@ class MyFrame(wx.Frame):
 
     def __init__(self, parent):
         wx.Frame.__init__(self, parent, id=wx.ID_ANY, title=u"Решение системы линейных уравнений",
-                          pos=wx.DefaultPosition, size=wx.Size(707, 200),
+                          pos=wx.DefaultPosition, size=wx.Size(100, 210),
                           style=wx.DEFAULT_FRAME_STYLE | wx.TAB_TRAVERSAL)
 
         self.SetSizeHints(wx.DefaultSize, wx.DefaultSize)
