@@ -74,7 +74,7 @@ class MainFrame(MyFrame):
     def auto_size(self):
         width = 100
         if self.cells:
-            width = 100 + len(self.cells) * 50
+            width = 100 + len(self.cells) * 52
         height = 210
         if len(self.cells) > 4:
             height = 210 + (len(self.cells) - 4) * 39
