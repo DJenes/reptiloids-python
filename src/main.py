@@ -76,6 +76,7 @@ class MainFrame(MyFrame):
         height = 100
         if len(self.cells) > 4:
             height = 100 + (len(self.cells) - 4) * 20
+        logging.warning(len(self.cells))
         self.SetSize(wx.Size(width, height))
 
 
