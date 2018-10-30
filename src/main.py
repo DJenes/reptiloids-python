@@ -20,6 +20,7 @@ class MainFrame(MyFrame):
         if not self.status:
             self.status = True
             self.create_grid(num)
+            self.auto_size()
         logging.warning(num)
 
     # x - rows
@@ -32,7 +33,6 @@ class MainFrame(MyFrame):
                 element.SetMaxLength(2)
                 self.gbSizer1.Add(element, wx.GBPosition(1 + x, 1 + y), wx.GBSpan(1, 1), wx.ALL, 5)
                 self.cells[x].append(element)
-        self.auto_size()
         self.Layout()
 
     def solve(self, event):
