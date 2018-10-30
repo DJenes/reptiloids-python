@@ -92,8 +92,6 @@ frame = MainFrame(None)
 frame.Show()
 app.MainLoop()
 
-# TODO: autosizing
 # TODO: logging to file
 # TODO: tests
 # TODO: fix prospector
-# TODO: windows for answer
