@@ -25,10 +25,11 @@ class MainFrame(MyFrame):
     # x - rows
     # y - cols + one additional for numpy
     def create_grid(self, count):
+        self.auto_size()
         for x in range(0, count):
             self.cells.append([])
             for y in range(0, count + 1):
-                element = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(20, -1), 0)
+                element = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(35, -1), 0)
                 element.SetMaxLength(2)
                 self.gbSizer1.Add(element, wx.GBPosition(1 + x, 1 + y), wx.GBSpan(1, 1), wx.ALL, 5)
                 self.cells[x].append(element)
@@ -62,6 +63,7 @@ class MainFrame(MyFrame):
         dial.ShowModal()
 
     def clear(self, event):
+        self.auto_size()
         if self.status:
             self.status = False
             for x in range(0, len(self.cells)):
