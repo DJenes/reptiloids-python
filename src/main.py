@@ -67,6 +67,7 @@ frame.Show()
 app.MainLoop()
 
 # TODO: autosizing
-# TODO: validation of user input
 # TODO: logging to file
 # TODO: tests
+# TODO: fix prospector
+# TODO: windows for answer
