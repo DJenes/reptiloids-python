@@ -63,18 +63,18 @@ class MainFrame(MyFrame):
         dial.ShowModal()
 
     def clear(self, event):
-        self.auto_size()
         if self.status:
             self.status = False
             for x in range(0, len(self.cells)):
                 for y in range(0, len(self.cells) + 1):
                     self.cells[x][y].Destroy()
             self.cells = []
+            self.auto_size()
 
     def auto_size(self):
         width = 100
         if self.cells:
-            width = 100 + (len(self.cells) + 1) * 52
+            width = 100 + (len(self.cells) + 1) * 55
         height = 210
         if len(self.cells) > 4:
             height = 210 + (len(self.cells) - 4) * 39
