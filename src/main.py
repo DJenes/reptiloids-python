@@ -25,7 +25,6 @@ class MainFrame(MyFrame):
     # x - rows
     # y - cols + one additional for numpy
     def create_grid(self, count):
-        self.auto_size()
         for x in range(0, count):
             self.cells.append([])
             for y in range(0, count + 1):
@@ -33,6 +32,7 @@ class MainFrame(MyFrame):
                 element.SetMaxLength(2)
                 self.gbSizer1.Add(element, wx.GBPosition(1 + x, 1 + y), wx.GBSpan(1, 1), wx.ALL, 5)
                 self.cells[x].append(element)
+        self.auto_size()
         self.Layout()
 
     def solve(self, event):
