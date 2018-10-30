@@ -44,6 +44,7 @@ class MainFrame(MyFrame):
                 for y in range(0, len(self.cells)):
                     m1[x].append(float(self.cells[x][y].GetValue()))
             answer = numpy.linalg.solve(m1, v1)
+            self.show_answer(answer)
             logging.warning(v1)
             logging.warning(m1)
             logging.warning(answer)
@@ -60,6 +61,10 @@ class MainFrame(MyFrame):
 
     def pop_up(self, message):
         dial = wx.MessageDialog(None, message, 'Ошибка валидации', wx.OK | wx.ICON_ERROR)
+        dial.ShowModal()
+
+    def show_answer(self, answer):
+        dial = wx.MessageDialog(None, answer, 'Ответ', wx.OK | wx.ICON_INFORMATION)
         dial.ShowModal()
 
     def clear(self, event):
