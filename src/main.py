@@ -63,7 +63,7 @@ class MainFrame(MyFrame):
     def clear(self, event):
         for x in range(0, len(self.cells)):
             for y in range(0, len(self.cells) + 1):
-                self.cells[x][y].Remove()
+                self.cells[x][y].Destroy()
 
 
 app = wx.App()
