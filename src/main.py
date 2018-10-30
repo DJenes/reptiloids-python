@@ -43,7 +43,7 @@ class MainFrame(MyFrame):
                 m1.append([])
                 for y in range(0, len(self.cells)):
                     m1[x].append(float(self.cells[x][y].GetValue()))
-            answer = numpy.linalg.solve(m1, v1)
+            answer = str(numpy.linalg.solve(m1, v1))
             self.show_answer(answer)
             logging.warning(v1)
             logging.warning(m1)
