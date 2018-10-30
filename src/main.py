@@ -28,7 +28,7 @@ class MainFrame(MyFrame):
         for x in range(0, count):
             self.cells.append([])
             for y in range(0, count + 1):
-                element = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(50, -1), 0)
+                element = wx.TextCtrl(self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size(20, -1), 0)
                 element.SetMaxLength(2)
                 self.gbSizer1.Add(element, wx.GBPosition(1 + x, 1 + y), wx.GBSpan(1, 1), wx.ALL, 5)
                 self.cells[x].append(element)
@@ -68,6 +68,11 @@ class MainFrame(MyFrame):
                 for y in range(0, len(self.cells) + 1):
                     self.cells[x][y].Destroy()
             self.cells = []
+
+    def auto_size(self):
+        width = 500
+        height = 500
+        self.SetSize(wx.Size(width, height))
 
 
 app = wx.App()
